@@ -6,7 +6,7 @@ const Register = () => {
     const [ form, setForm ] = useState({ email: '', firstname: '', lastname: '', password: '' });
     const [ submitting, setSubmitting ] = useState(false);
     const navigate = useNavigate();
-
+     const API_URL = import.meta.env.VITE_API_URL;
 
     function handleChange(e) {
         const { name, value } = e.target;
@@ -18,7 +18,7 @@ const Register = () => {
         setSubmitting(true);
         console.log(form);
 
-        axios.post("http://localhost:3000/auth/register", {
+        axios.post(`${API_URL}/auth/register`, {
             email: form.email,
             fullName: {
                 firstName: form.firstname,

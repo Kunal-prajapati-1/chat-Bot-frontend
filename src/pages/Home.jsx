@@ -34,14 +34,14 @@ const Home = () => {
   const activeChat = chats.find((c) => c.id === activeChatId) || null;
 
   const [messages, setMessages] = useState([
-    {
-      type: "user",
-      content: "Hello, how can I help you today?",
-    },
-    {
-      type: "ai",
-      content: "Hi there! I need assistance with my account.",
-    },
+    // {
+    //   type: "user",
+    //   content: "Hello, how can I help you today?",
+    // },
+    // {
+    //   type: "ai",
+    //   content: "Hi there! I need assistance with my account.",
+    // },
   ]);
 
   const handleNewChat = async () => {

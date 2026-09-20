@@ -3,10 +3,10 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Login = () => {
+  const API_URL = import.meta.env.VITE_API_URL;
   const [form, setForm] = useState({ email: "", password: "" });
   const [submitting, setSubmitting] = useState(false);
   const navigate = useNavigate();
-
   function handleChange(e) {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
@@ -20,7 +20,7 @@ const Login = () => {
 
     axios
       .post(
-        "http://localhost:3000/auth/login",
+        `${API_URL}/auth/login`,
         {
           email: form.email,
           password: form.password,
