@@ -138,7 +138,7 @@ const Home = () => {
 
     socket.emit("send_Msg", {
       chatId: activeChatId,
-      query: trimmed,
+      Query: trimmed,
     });
 
     // try {
