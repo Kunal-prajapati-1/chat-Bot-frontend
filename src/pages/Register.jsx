@@ -6,10 +6,10 @@ const Register = () => {
     const [ form, setForm ] = useState({ email: '', firstname: '', lastname: '', password: '' });
     const [ submitting, setSubmitting ] = useState(false);
     const navigate = useNavigate();
-     const API_URL = import.meta.env.VITE_API_URL;
-
+     const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+    console.log("api -",  API_URL)
     function handleChange(e) {
-        const { name, value } = e.target;
+        const { name, value } = e.target;   
         setForm(f => ({ ...f, [ name ]: value }));
     }
 
@@ -18,31 +18,31 @@ const Register = () => {
         setSubmitting(true);
         console.log(form);
 
-        axios.post(`${API_URL}/auth/register`, {
-            email: form.email,
-            fullName: {
-                firstName: form.firstname,
-                lastName: form.lastname
-            },
-            password: form.password
-        }, {
-            withCredentials: true
-        }).then((res) => {
-            console.log(res);
-            navigate("/");
-        }).catch((err) => {
-            console.error(err);
-            alert('Registration failed (placeholder)');
-        })
-
-        try {
-            // Placeholder: integrate real registration logic / API call.
+         try {
+           await axios.post(`${API_URL}/auth/register`, {
+                email: form.email,
+                fullName: {
+                    firstName: form.firstname,
+                    lastName: form.lastname
+                },
+                password: form.password
+            }, {
+                withCredentials: true
+            }).then((res) => {
+                console.log(res);
+                navigate("/");
+            }).catch((err) => {
+                console.error(err);
+                alert('Registration failed (placeholder)');
+            })
 
         } catch (err) {
             console.error(err);
         } finally {
             setSubmitting(false);
         }
+
+        
     }
 
     return (
