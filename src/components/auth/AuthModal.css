@@ -1,0 +1,82 @@
+
+.auth-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+.auth-modal {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 16px;
+  background: var(--bg-primary, #fff);
+  color: var(--text-primary, #111);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.auth-modal .auth-card {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  border: none;
+  box-shadow: none;
+}
+
+.auth-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.auth-modal-close:hover {
+  background: rgba(128, 128, 128, 0.15);
+}
+
+.auth-switch-btn {
+  padding: 0;
+  border: none;
+  background: none;
+  color: #2563eb;
+  font: inherit;
+  cursor: pointer;
+}
+
+.auth-switch-btn:hover {
+  text-decoration: underline;
+}
+
+.auth-error {
+  margin: 0;
+  color: #dc2626;
+  font-size: 14px;
+}
+
+@media (max-width: 480px) {
+  .auth-modal-overlay {
+    padding: 12px;
+  }
+
+  .auth-modal {
+    max-height: 94vh;
+  }
+}
